@@ -1,0 +1,90 @@
+\chapter{Ranks}
+\section{Ramanujan's and Dyson's Work}
+
+The following are the most celebrated congruences due to Ramanujan,
+
+\begin{equation}
+    p(5k+4) \equiv 0 \pmod 5,
+\end{equation} 
+\begin{equation}
+    p(7k+5) \equiv 0 \pmod 7,
+\end{equation} 
+\begin{equation}
+    p(11k+6) \equiv 0 \pmod{11}.
+\end{equation}
+We present sophisticated proofs for these great results.
+\begin{proof}
+For (3.1)
+
+We define $E = (q;q)$ and $J = E^3$
+
+Now, using Euler's theorem,
+
+$$E = \sum_{-\infty}^\infty (-1)^n q^{\frac{(3n^2+n)}{2}}$$
+
+And using Jacobi triple product identity,
+$$J = \sum_{n\geq 0}(-1)^n(2n+1)q^{\frac{n^2+n}{2}}$$
+
+We notice that expnents of series of $E$ are congruent to 0, 1 or 2 modulo 5 and exponents in series of $J$ is congruent to 0, 1 or 3 modulo 5 but whenever the exponent is congruent to 3 modulo 5, the coefficient is divisible by 5.
+
+We can deduce that
+\begin{align*}
+    E &= E_0+E_1+E_2, \\
+    J &= J_0 + J_1.
+\end{align*}
+
+Now,
+\begin{equation}
+\begin{split}
+    \sum_{n\geq 0}p(n)q^n &= \frac{1}{E} = \frac{E^4}{E^5} = \frac{EJ}{E^5} \\
+    &= \frac{(E_0+E_1+E_2)(J_0+J_1)}{E^5}\\
+    \end{split}
+\end{equation}
+Now we see the coefficients of the form $5n+4$ and arrive at
+
+$$\sum_{n\geq0}p(5n+4)q^{5n+4} \equiv 0 \pmod{5}$$
+\end{proof}
+
+A Proof on similar lines can easily be deduced for the other two congruences too.
+\newpage
+In fact the first two congruences are a result of the following generating functions
+\begin{align*}
+    \sum_{k=0}^\infty p(5k+4)q^k &= 5\frac{(q^5;q^5)^5_\infty}{(q;q)^6_\infty}\\
+    \sum_{k=0}^\infty p(7k+5)q^k &= 7\frac{(q^7;q^7)^3_\infty}{(q;q)^3_\infty} + 49q\frac{(q^7;q^7)^7_\infty}{(q;q)^8_\infty}
+\end{align*}
+
+
+
+\subsection{Rank of a Partition}
+
+Rank of a partition is defined as the difference of the largest part of a partition and the number of parts of a partition i.e.
+
+\begin{equation}
+    r(\lambda) = l(\lambda) - n(\lambda)
+\end{equation}
+
+Key points to notice regarding ranks of a partition $\lambda$ are $r(\lambda) = -r(\lambda*)$ and that in general values of ranks of a partitions of $n$ can only be
+\begin{center}
+    $n-1,n-3,n-4,\dots,1,0,-1,-2,\dots, 3-n,1-n$
+\end{center}
+
+Dyson denoted the number of partitions of $n$ with rank $s$ as $N(s,n)$, and the number of partitions of $n$ with rank $s$ modulo $m$ as $N(s,m,n)$. By definition, $$N(s,m,n) = \sum_{k=-\infty}^\infty N(mk+s,n).$$
+
+Ramanujan's congruences directly relate to Dyson's notion of the rank of a partition as Dyson conjectured in [4], that 
+\begin{center}
+    $N(s,5,5n+4) = \frac{p(5n+4)}{5},$
+    
+    $N(t,7,7n+5) = \frac{p(7n+5)}{7}$
+\end{center}
+\newpage
+The above conjectures were based on computational evidence and in an attempt to give a combinatorial interpretation of Ramanujan's congruences which follows after summing the residue classes.
+
+The proof was given by Atkin and Swinnerton-Dyer in [1], by establishing generating function for the expression $N(s,l,ln+d)-N(t,l,ln+d) $ for $d = 5, 7$ and $0 \leq d,s,t \leq l$. They obtained the difference of all values of $d$ for $l = 5, 7$ and found it to be 0 for $l = 5$, $d = 4$ and $l = 7$ , $d = 5$ which was completely in accordance with Ramanujan's congruences.
+
+\subsection{$M_2$ Rank Differences}
+To define $M_2$ rank differences we need to consider partitions without repeated odd parts which are the number of partitions of $n$ where none of the odd parts is repeated.
+
+$M_2$ rank differences is at the heart of most of the conjectures by Mao and the one that we discuss here. The $M_2$ rank of a partition $\lambda$ without repeated odd parts is defined as
+$$\ceil*{\frac{l(\lambda)}{2}} - n(\lambda)$$
+where $l(\lambda)$ and $n(\lambda)$ are defined as above.
+We define various notations, $N_2(s,n)$ as the number of partitions of $n$ with no repeated odd parts and its $M_2$ rank equal to $s$ and $N_2(s,m,n)$ as the number of partitions of $n$ with distinct odd parts and $M_2$ rank congruent to $s$ modulo $m$.

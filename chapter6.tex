@@ -1,0 +1,109 @@
+\chapter{Proof of Lin's Conjectures}
+
+\section{Lin's Conjectures}
+
+In [17] Lin conjectured the following:
+\begin{conjecture}
+\begin{equation}
+    b(81n + 61) \equiv 0 \pmod{243}.
+\end{equation}
+\end{conjecture}
+
+\begin{conjecture}
+\begin{equation}
+    \sum_{n=0}^\infty b(81n + 7)q^n \equiv 9 \frac{(q^2;q^2)_\infty(q^3;q^3)^2_\infty}{(q^6;q^6)_\infty} \pmod{81},
+\end{equation}
+\begin{equation}
+    \sum_{n=0}^\infty b(81n + 34)q^n \equiv 36 \frac{(q;q)_\infty(q^6;q^6)^2_\infty}{(q^3;q^3)_\infty} \pmod{81}.
+\end{equation}
+\end{conjecture}
+
+\newpage
+
+\section{Gireesh and Naika's proof}
+In [11], Gireesh and Naika present elegant proof for general family of congruences modulo large powers of 3 for cubic partition pairs.
+
+They use results obtained by Cooper in [9] and the "huffing" operator H to arrive at the following general congruences.
+\begin{theorem}
+For each $\alpha \geq 0$ and $n \geq 0$
+\begin{equation}
+    b\bigg(3^{2\alpha + 1}n + \frac{3^{2\alpha + 1} + 1}{4}\bigg) \equiv 0 \pmod{3^{2\alpha}}
+\end{equation}
+\begin{equation}
+    b\bigg(3^{2\alpha + 4}n + \frac{3^{2\alpha + 5} + 1}{4}\bigg) \equiv 0 \pmod{3^{2\alpha + 5}}
+\end{equation}
+\begin{equation}
+    b\bigg(3^{2\alpha + 5}n + \frac{7\cdot 3^{2\alpha + 4} + 1}{4}\bigg) \equiv 0 \pmod{3^{\alpha + 6}}
+\end{equation}
+\begin{equation}
+    b\bigg(3^{2\alpha + 5}n + \frac{11\cdot 3^{2\alpha + 4} + 1}{4}\bigg) \equiv 0 \pmod{3^{\alpha + 6}}
+\end{equation}
+\end{theorem}
+
+Now Lin's Conjecture 6.1.1 follows directly from (6.5) by substituting $\alpha = 0$.
+
+\begin{proof}
+From [11], we elaborate on the proof of Lin's conjecture 6.1.2
+\begin{lemma}
+\begin{equation}
+        \frac{f^5_2}{f^4_1} = \frac{f^6_6f^{10}_9}{f^{10}_3f^5_{18}} + 4q\frac{f^5_6f^7_9}{f^9_3f^2_{18}} + 9q^2\frac{f^4_6f^4_9f_{18}}{f^8_3} + 10q^3\frac{f^3_6f_9f^4_{18}}{f^7_3}+4q^4\frac{f^2_6f^7_{18}}{f^6_3f^2_9}
+\end{equation}
+\begin{proof}
+From [i, p. 49, Corollary],
+\begin{equation}
+    \frac{f^2_2}{f_1} = \frac{f_6f^2_9}{f_3f_{18}} + q\frac{f^2_{18}}{f_9}
+\end{equation}
+In [12], Hirschhorn proves,
+\begin{equation}
+    \frac{f_2}{f^2_1} = \frac{f_6^4f_9^6}{f_3^8f_{18}^3} + 2q\frac{f^3_6f_9^3}{f^7_3}+4q^2\frac{f^2_6f^2_{18}}{f^6_3}
+\end{equation}
+By squaring (6.9), then multiplying by (6.10), we obtain (6.8)
+\end{proof}
+\end{lemma}
+
+\begin{lemma}
+From [13, Eq. 5.1], we have,
+\begin{equation}
+    \frac{f_2^4f_3^8}{f_1^8f_6^4} + q\frac{f_2f_6^5}{f_1^5f_3} \equiv 1 \pmod 9
+\end{equation}
+\end{lemma}
+
+\begin{lemma}
+\begin{equation}
+\begin{split}
+    \sum_{n = 0}^\infty b(27n + 7)q^n &\equiv 9\frac{f_3^2f_6^2}{f_1^1f_2^4} 
+    \\&\equiv 9 \frac{f_3^2f_2^5}{f_1^4f_6} \pmod{81}
+\end{split}
+\end{equation}
+\end{lemma}
+
+Using (6.8) and (6.12), we get,
+\begin{equation}
+    \sum_{n=0}^\infty b(27n + 7)q^n \equiv 9 \frac{f_3^2}{f_6}
+    \bigg(\frac{f_6^6f_9^{10}}{f_3^{10}f_{18}^5} + 4q\frac{f^5_6f_9^7}{f^9_3f_{18}^2}+q^3\frac{f^3_6f_9f^4_{18}}{f^7_3}+4q^4\frac{f_6^2f_{18}^7}{f_3^6f_9^2}\bigg) \pmod{81}
+\end{equation}
+Through which we get,
+\begin{equation}
+\begin{split}
+    \sum_{n=0}^\infty b(81n + 7)q^n &\equiv 9 \frac{f_1^2}{f_2}
+    \bigg(\frac{f_2^6f_3^{10}}{f_1^{10}f_6^5} + +q\frac{f^3_2f_3f^4_6}{f^7_1}\bigg)
+    \\&\equiv 9 \frac{f_2f_3^2}{f_6}
+    \bigg(\frac{f_2^4f_3^8}{f_1^8f_6^4} + +q\frac{f_2f^5_6}{f^5_1f_3}\bigg) \pmod{81}
+\end{split}
+\end{equation}
+Using (6.11) in (6.14), we arrive at (6.2)
+\newpage
+Taking the terms from (6.13) in which the powers of $q$ are congruent to 1 modulo 3, then dividing by $q$, and then finally replacing $q^3$ by $q$, we get,
+\begin{equation}
+\begin{split}
+\sum_{n=0}^\infty b(81n + 34)q^n &\equiv 36 \frac{f_1^2}{f_2}
+    \bigg(\frac{f_2^5f_3^7}{f_1^9f_6^2} + +q\frac{f^2_2f_3f^7_6}{f^6_1f_3^2}\bigg)
+    \\&\equiv 36 \frac{f_1f_6^2}{f_3}\bigg( \frac{f_2^4f_3^8}{f_1^8f_6^4} + q\frac{f_2f_6^5}{f_1^5f_3} \bigg)
+\end{split}
+\end{equation}
+
+Using (6.11) in (6.15), we arrive at (6.3).
+
+And thus we complete the demonstration of the proof for Conjecture 6.1.2
+
+\end{proof}

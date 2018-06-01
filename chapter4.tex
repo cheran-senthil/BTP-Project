@@ -1,0 +1,129 @@
+\chapter{Mao's Inequalities: Proofs and Conjectures}
+\section{Mao's conjectures}
+
+Mao, in [18, 19] proved several inequalities using the generating function derived for Dyson's rank on partitions modulo 10 and the $M_2$ rank on partitions without repeated odd parts modulo 6 and 10 including,
+$$N(0,10,5n+1)>N(4,10,5n+1)$$
+$$N_2(0,6,3n)+N_2(1,6,3n) > N_2(2,6,3n)+ N_2(3,6,3n)$$
+Mao also left several inequalities as conjectures for which he had computational evidence.
+
+\newpage
+\begin{conjecture}
+\begin{equation}
+    N(0,10,5n)+N(1,10,5n) > N(4,10,5n)+N(5,10,5n)
+\end{equation}
+\begin{equation}
+    N(1,10,5n)+N(2,10,5n) > N(3,10,5n)+N(4,10,5n)
+\end{equation}
+\begin{equation}
+    N_2(0,10,5n)+N_2(1,10,5n) > N_2(4,10,5n)+N_2(5,10,5n)
+\end{equation}
+\begin{equation}
+    N_2(0,10,5n+4)+N_2(1,10,5n+4) > N_2(4,10,5n+4)+N_2(5,10,5n+4)
+\end{equation}
+\begin{equation}
+    N_2(1,10,5n)+N_2(1,10,5n) > N_2(4,10,5n)+N_2(5,10,5n)
+\end{equation}
+\begin{equation}
+    N_2(1,10,5n+2)+N_2(2,10,5n+2) > N_2(3,10,5n+2)+N_2(4,10,5n+2)
+\end{equation}
+\begin{equation}
+    N_2(0,6,3n+2)+N_2(1,6,3n+2) > N_2(2,6,3n+2)+N_2(3,6,3n+2)
+\end{equation}
+\end{conjecture}
+
+\subsection{Proofs by Alwaise et al.}
+
+Alwaise et al in [1] gave the proof for (4.1), (4.2), (4.3) and (4.4).
+using the generating function of rank differences derived by Mao in [18] and theorems which relies on vector partitions with a given crank.
+
+\newpage
+\section{Proof of a limited version of one of Mao's Conjectures}
+
+\subsection{Proof by Barman and Sachdeva}
+
+A limited version of (4.7) was proved by R.Barman using the generating function derived by Mao in [19] and Theorem suggested in [2].
+
+\begin{theorem}
+Mao's conjecture (4.7) is true when $3 \nmid n+1$.
+\end{theorem}
+To prove the above we'll take help of Mao's $M_2$ rank difference generating function.
+\begin{theorem}
+(Mao [19]). We have 
+\begin{equation}
+    \begin{split}
+        d(n) &:= \sum_{n\geq 0}\big(N_2(0,6,n) + N_2(1,6,n) - N_2(2,6,n) - N_2(3,6,n)\big)q^n \\
+        &= \frac{1}{J_{9,36}}\sum_{n = -\infty}^\infty \frac{(-1)^nq^{18n^2 + 9n}}{1+q^{18n+3}} + q\frac{J_{6,36}^2J_{18,36}J_{36}^3}{J_{3,36}^2J_{9,36}J_{15,36}^2}\\
+        &+ \frac{J_{6,36}J_{18,36}^2J_{36}^3}{2q J_{9,36}J_{3,36}^2J_{15,36}^2}-\frac{1}{J_{9,36}}\sum_{n = -\infty}^\infty\frac{(-1)^n q^{18n^2+9n-1} }{ 1+q^{18n} }
+    \end{split}
+\end{equation}
+\end{theorem}
+
+But the most important moving part of the proof was due to Barman and Baruah in [2].
+\begin{theorem}
+We have
+\begin{equation}
+    \varphi^2(q) + \varphi^2(q^3) = 2\varphi^2(-q^6)\frac{\chi(q)\psi(-q^3)}{\chi(-q)\psi(q^3)}
+\end{equation}
+\end{theorem}
+
+We look at the generating function $\sum_{n \geq 0}d(3n+2)q^n$ in (4.8).
+Now we just take only the exponents congruent to 2 modulo 3 in (4.7) and substitute $q \hookrightarrow q^{\frac{1}{3}}$. We get the following
+\begin{proposition}
+\begin{equation}
+    \sum_{n \geq 0}d(3n+2)q^n  = \frac{1}{qJ_{3,12}}\bigg(\frac{J_{2,12}J_{6,12}^2J_{12}^3}{2J_{1,12}^2J_{5,12}^2} - \sum_{n = -\infty}^\infty \frac{(-1)^n q^{6n^2+3n} }{1+q^{6n} }\bigg)
+\end{equation}
+\end{proposition}
+
+The following lemma is needed to tie the proof together.
+\begin{lemma}
+We have
+\begin{equation}
+    \frac{J_{2,12}J_{6,12}^2J_{12}^3}{J_{1,12}^2J_{5,12}^2} = \frac{\varphi^2(q) + \varphi^2(q^3)}{2}
+\end{equation}
+\end{lemma}
+\begin{proof}
+The proof is straight forward manipulation using the properties of q-series and using the Theorem 4.2.3.
+\end{proof}
+This now sets up to prove Theorem 4.2.1
+\begin{proof}
+Using Proposition 4.2.4 and Lemma 4.2.5 and noting that all the exponents in the summation inside the parenthesis is $0 \pmod{3}$, we have
+\begin{equation}
+    \begin{split}
+        \sum_{n \geq 0} d(3n+2)q^n  
+        &= \frac{ 1 }{ q J_{3,12} } \bigg(\frac{ J_{2,12}J_{6,12}^2J_{12}^3 }{ 2J_{1,12}^2J_{5,12}^2 } - \sum_{n = -\infty}^\infty \frac{(-1)^n q^{6n^2+3n} }{1+q^{6n} }\bigg)
+        \\&=\frac{1}{q J_{3,12} } \bigg(\frac{\varphi^2(q) + \varphi^2(q^3)}{4} - \frac{1}{2} + \sum_{n\geq 1}a_{3n}q^{3n}  \bigg)
+    \end{split}
+\end{equation}
+where $a_{3n} \in Z$
+
+Now if $3\nmid n+1$, then
+\begin{equation}
+    \begin{split}
+        d(3n+2)q^n &=[q^n]\frac{1}{q J_{3,12} } \bigg(\frac{\varphi^2(q) + \varphi^2(q^3)}{4} - \frac{1}{2} + \sum_{n\geq 1}a_{3n}q^{3n}  \bigg)
+        \\&=[q^{n+1}]\frac{\varphi^2(q) + \varphi^2(q^3)}{4J_{3,12}}
+    \end{split}
+\end{equation}
+where $[x^k]f(x)$ denotes the coefficient of $x^k$ in $f(x)$. Now all that we need to show is that all the coefficients of $\frac{\varphi^2(q) + \varphi^2(q^3)}{4J_{3,12}}$ are positive. This can be done using the following simplification
+\begin{equation*}
+    \begin{split}
+        \frac{\varphi^2(q) + \varphi^2(q^3)}{4J_{3,12}} &= 
+        \frac{2+4q+4q^2 + \sum_{n\geq 3}b_nq^n   }{(1-q^3)(q^9,q^9,q^12;q^12)_\infty}
+        \\&= \bigg( 2+4q+4q^2 + \sum_{n\geq 3}b_nq^n \bigg) \bigg(\sum_{n\geq0}q^{3n}\bigg)\bigg(1+\sum_{n\geq0}c_nq^n\bigg)
+    \end{split}
+\end{equation*}
+where $b_i$ and $c_i$ are non-negative.
+\end{proof}
+\subsection{Remarks}
+
+The result is limited to $3n+2$ when $3\nmid n$ but computational evidence is suggested in [3] for the remaining case too.
+
+To prove the result for the remainder of the integers would imply that the following expression has non-negative coefficients
+$$\frac{1}{1-q^{12}}\bigg(\frac{J_{2,12}J_{6,12}^2J_{12}^3}{2J_{1,12}^2J_{5,12}^2} - \sum_{n = -\infty}^{n = \infty}\frac{(-1)^nq^{6n^2+3n}}{1+q^{6n}}\bigg)$$
+
+which would also mean that it is equivalent to showing that the following has positive coefficients for all exponents of $q$.
+$$\frac{1}{qJ_{3,12}}\bigg(\frac{\varphi^2(q) + \varphi^2(q^3)}{4} - \frac{1}{2} + \sum_{n\geq 1}a_{3n}q^{3n}\bigg)$$
+
+Our first attempt was to use the properties of $\varphi^2(q)$, where the coefficient of $q^n$ counts the number of integer solutions to $a^2 + b^2 = n$ but we need to compare this number with the other half of the above expression which does not seem to have any nice properties like this.
+
+We could attempt a proof along the lines of the method used by Alwaise et. al. in [1] but in the general setting removing a factor with non-negative coefficient can yield a negative coefficient which is hard to convince against. 
+

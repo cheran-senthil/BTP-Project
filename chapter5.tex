@@ -1,0 +1,119 @@
+\chapter{Cubic Partition Pair Congruences}
+
+\section{Introduction}
+To understand Lin's work and his conjectures, we introduce some basic definitions relating to cubic partition functions.
+\subsection{Cubic Partition Function}
+
+Chan in [6, 7, 8] introduces the cubic partition function $a(n)$
+
+\begin{definition}
+$$ \sum_{n=0}^{\infty} a(n)q^n := \frac{1}{(q;q)_\infty(q^2;q^2)_\infty} $$.
+\end{definition}
+
+On investigation the analogues of cubic partition function, Kim in [14] introduced the overcubic partition function $\overline{a}(n)$
+
+\begin{definition}
+$$ \sum_{n=0}^{\infty} \overline{a}(n)q^n := \frac{(-q;q)_\infty(-q^2;q^2)_\infty}{(q;q)_\infty(q^2;q^2)_\infty} $$
+\end{definition}
+
+\subsection{Number of Cubic Partition Pairs}
+Zhao and Zhong  in [20] then studied the partition function $b(n)$
+
+\begin{definition}
+$$ \sum_{n=0}^{\infty} b(n)q^n := \frac{1}{(q;q)^2_\infty(q^2;q^2)^2_\infty} $$.
+\end{definition}
+
+Kim established Ramanujan type congruences $b(5n+4) \equiv 0 \pmod 5$ in [15]. There, Kim referred to $b(n)$ as the number of cubic partition pairs, since it counts pair of cubic partitions.
+
+In [16], Kim introduced the overpartition analogue for the number of cubic partition pairs $\overline{b}(n)$
+
+\begin{definition}
+$$ \sum_{n=0}^{\infty} \overline{b}(n)q^n := \frac{(-q;q)_\infty^2(-q^2;q^2)_\infty^2}{(q;q)_\infty^2(q^2;q^2)_\infty^2} $$
+\end{definition}
+
+\section{Preliminaries}
+\begin{definition}
+We will be following the below mentioned notation
+\begin{equation}
+    f_t := (q^t;q^t)_\infty, \; t\in \mathbb{N}
+\end{equation}
+\begin{equation}
+    a(q) = \sum_{m,n = -\infty}^\infty q^{m^2 + mn + n^2}
+\end{equation}
+\end{definition}
+
+Trivially we have,
+\begin{align*}
+   f_1 = \sum^\infty_{m = -\infty}(-1)^nq^{m(3m+1)/2} 
+\end{align*}
+using Eulers Pentagonal number theorem from Part A.
+
+\begin{lemma}
+Applying the binomial theorem, we establish the following,
+\begin{align*}
+    f_1^3 &\equiv f_3 \pmod 3,
+   \\f_1^9 &\equiv f_3^3 \pmod 9.
+\end{align*}
+\end{lemma}
+\begin{lemma}
+Now using Jacobi's triple product identity, we get
+\begin{align*}
+\varphi(-q) &= \frac{f_1^2}{f_2},
+\\ \psi(q) &= \frac{f_2^2}{f_1}.
+\end{align*}
+\end{lemma}
+
+\begin{lemma}
+\begin{equation}
+    \frac{1}{f_1f_2} = a(q^6)\frac{f^3_9}{f^4_3f^3_6} + qa(q^3)\frac{f^3_{18}}{f^3_3f^4_6}+3q^2\frac{f^3_9f^3_{18}}{f^4_3f^4_6},
+\end{equation}
+\begin{equation}
+    f_1f_2 = \frac{f_6f^4_9}{f_3f^2_{18}} -qf_9f_{18}-2q^2\frac{f_3f^4_{18}}{f_6f^2_9}.
+\end{equation}
+\end{lemma}
+A proof for these can be found in [20]
+
+\begin{theorem}
+\begin{equation}
+    \sum_{n=0}^\infty b(9n + 7)q^n \equiv 18f_1f_2\bigg(\frac{f^7_3}{f_6}+q\frac{f^7_6}{f_3}\bigg)-9f^2_3f^2_6 \pmod{27}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+    See [17]
+\end{proof}
+
+\begin{lemma}
+\begin{equation}
+    \sum_{n=0}^\infty b(9n + 7)q^n \equiv 18\bigg( \frac{f_6f^4_9}{f_3f^2_{18}} - qf_9f_{18} - 2q^2\frac{f_3f^4_{18}}{f_6f^2_9}\bigg)\bigg( \frac{f^7_3}{f_6} + q\frac{f^7_6}{f_3} \bigg) - 9f^2_3f^2_6 \pmod{27}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+    This follows immediately from combining (5.4) and (5.5).
+\end{proof}
+
+\section{Lin's Work}
+\begin{theorem}
+For any $ n \geq 0$,
+\begin{equation}
+    b(81n + 61) \equiv 0. \pmod{27}
+\end{equation}
+\end{theorem}
+\begin{proof}
+    Collecting the terms from (5.6) where powers of q are multiples of 3, replacing $q^3$ by q, we get
+\begin{equation}
+\begin{split}
+    \sum_{n=0}^\infty b(27n+7)q^n &\equiv 18\bigg(\frac{f_1^7}{f_2}.\frac{f_2f_3^4}{f_1f_6^2} - 2q\frac{f_2^7}{f_1}.\frac{f_1f_6^4}{f_2f_3^2}\bigg) - 9f_1^2f_2^2 \pmod{27}
+    \\&\equiv 18\bigg(\frac{f_3^6}{f_6^2}-2q\frac{f_6^6}{f_3^2}\bigg) - 9\frac{f_3f_6}{f_1f_2}. \pmod{27}.
+\end{split}
+\end{equation}
+
+By (5.3), we find that 
+\begin{equation}
+\begin{split}
+    \sum_{n=0}^\infty b(27n+7)q^n &\equiv 18\bigg(\frac{f_3^6}{f_6^2}-2q\frac{f_6^6}{f_3^2}\bigg) - 9f_3f_6\bigg(a(q^6) \frac{f_9^3}{f_3^4f_6^3}+qa(q^3)\frac{f_{18}^3}{f_3^4f_6^4} + 3q^2\frac{f_9^3f_{18}^3}{f_3^4f_6^4}\bigg) \pmod{27}
+    \\&\equiv 18\bigg(\frac{f_3^6}{f_6^2} - 2q\frac{f_6^6}{f_3^2}\bigg) - 9f_3f_6\bigg(a(q^6)\frac{f_9^3}{f_3^4f_6^3}+qa(q^3)\frac{f_{18}^3}{f_3^3f_6^4}\bigg) \pmod{27}
+\end{split}
+\end{equation}
+Since we don't have any term of the form $q^{3k+2}$ in the above equation, we can equate the coefficient of $q^{3k+2}$ and get the required result.
+    
+\end{proof}

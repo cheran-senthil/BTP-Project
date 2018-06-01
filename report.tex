@@ -1,0 +1,171 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage{amsthm,amssymb,mathrsfs,setspace,amsmath,mathtools}%amsmath, latexsym,footmisc
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+% \usepackage{pstcol}
+% \usepackage{play}
+\usepackage{epsfig}
+%\usepackage[grey,times]{quotchap}
+\usepackage[nottoc]{tocbibind}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+%
+
+\input xy
+\xyoption{all}
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{\bf{Conjecture}}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{notation}[theorem]{Notation}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\usepackage{tocloft}
+
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother
+\newlength\mylen
+\renewcommand\thepart{\arabic{part}}
+\renewcommand\cftpartpresnum{Part~}
+\settowidth\mylen{\bfseries\cftpartpresnum\cftpartaftersnum}
+\addtolength\cftpartnumwidth{\mylen}
+
+
+\begin{document}
+
+%\pagenumbering{arabic} \setcounter{page}{1}
+
+% --------------- Title page -----------------------
+
+\begin{titlepage}
+\enlargethispage{3cm}
+
+\begin{center}
+
+\vspace*{-2cm}
+
+\textbf{\Large Congruences of Partitions:} \\
+\textbf{\Large Rank Differences and Cubic Partition Pairs}
+
+\vfill
+
+A Project Report Submitted \\
+in Partial Fulfilment of the Requirements \\
+for the Degree of \\[1cm]
+
+{\bf\Large\ BACHELOR OF TECHNOLOGY }\\[.1in]
+{\large {in}}\\[5pt]
+{\large\bf {Mathematics and Computing}}\\[5pt]
+
+ \vfill
+
+{\large \emph{by}}\\[5pt]
+{\large\bf {Abhishek Tyagi and Seralathan V S}}\\[5pt]
+{\large (Roll No. 140101004 and Roll No. 140123032)}
+
+\vfill
+\includegraphics[height=2.5cm]{iitglogo}
+
+\vspace*{0.5cm}
+
+{\em\large to the}\\[10pt]
+{\bf\large DEPARTMENT OF MATHEMATICS} \\[5pt]
+{\bf\large \mbox{INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI}}\\[5pt]
+{\bf\large GUWAHATI - 781039, INDIA}\\[10pt]
+{\it\large April 2018}
+\end{center}
+
+\end{titlepage}
+
+\clearpage
+
+% --------------- Certificate page -----------------------
+\pagenumbering{roman} \setcounter{page}{2}
+\begin{center}
+{\Large{\bf{CERTIFICATE}}}
+\end{center}
+%\thispagestyle{empty}
+
+
+\noindent
+This is to certify that the work contained in this project report entitled ``{\bf Congruences of Partitions: Rank Differences and Cubic Partition Pairs}" submitted by {\bf Abhishek Tyagi} ({\bf Roll No. 140101004}) and {\bf Seralathan V S} ({\bf Roll No. 140123032}) to Department of Mathematics, Indian Institute of Technology Guwahati and Department of  towards the towards partial requirement of \textbf{Bachelor of Technology} in Mathematics and Computing has been carried out by them under my supervision.
+\\\\
+\noindent
+It is also certified that this report is a survey work based on the references
+in the bibliography.\\\\
+\noindent
+Turnitin Similarity: 18 \%
+
+\vspace{4cm}
+
+\noindent Guwahati - 781 039 \hfill (Dr. Rupam Barman)
+
+\noindent April 2018 \hfill Project Supervisor
+
+\clearpage
+
+% --------------- Abstract page -----------------------
+\begin{center}
+{\Large{\bf{ABSTRACT}}}
+\end{center}
+
+This report describes the work of our B.Tech Project in the field of Partition Theory specifically in the study of Congruences of Partition Rank differences and Cubic Partition Pairs.
+
+The celebrated Ramanujan's congruences led Dyson to conjecture the existence of the rank of a partition such that we get a combinatorial interpretation to these congruences in [10]. The notion of rank was extended to rank differences and $M_2$ rank differences upon which Mao conjectured several inequalities in [18, 19].
+
+We investigated the proof to one of Mao's ten conjectures in [19] and attempted to extend the solution given by Barman and Sachdeva in [3] by using the properties of $\varphi^2(q)$, in which the coefficient of $q^n$ counts the number of Integer solutions to $n = a^2 + b^2$ or using general proof for $M_2$-rank differences given in [1].
+
+We also investigated the conjectures made by Lin in [17] before finding a proof for the same in [11].
+
+\clearpage
+
+
+
+\tableofcontents
+\clearpage
+
+
+\newpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% =========== Main chapters starts here. Type in separate files and include the filename here. ==
+% ============================
+
+\part{}
+
+\input chapter1.tex
+
+\input chapter2.tex
+
+\input chapter3.tex
+\addtocontents{toc}{\protect\newpage}
+\input chapter4.tex
+
+\part{}
+
+\input chapter5.tex
+
+\input chapter6.tex
+
+\nocite{atkin1} \nocite{atkin2} \nocite{barman} \nocite{berndt} \nocite{dyson}  \nocite{mao1} \nocite{mao2} \nocite{Lin2017} \nocite{chan1} \nocite{chan2} \nocite{chan3} \nocite{kim1} \nocite{kim2} \nocite{kim3} \nocite{zhao1} \nocite{gireesh} \nocite{cooper} \nocite{hwan} \nocite{sellers} \nocite{berndt2}
+
+\bibliographystyle{plain}
+\bibliography{refer_items}
+
+\end{document}
+

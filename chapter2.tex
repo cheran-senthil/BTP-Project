@@ -1,0 +1,80 @@
+\chapter{Fundamental Properties of $q$-series and Theta functions}
+
+\section{$q$-analogue of the Binomial Theorem}
+
+The $q$-analogue of the binomial theorem is a generalization involving the parameter $q$ that returns the binomial theorem is the limit as $q \to 1$ and we replace $a$ by $q^a$.
+\begin{theorem}
+For  $|q|, |z| < 1$
+\begin{equation}
+    \sum_{n = 0}^{\infty} \frac{(a)_n}{(q)_n}z^n = \frac{(az)_\infty}{(z)_\infty}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Note that the product on the RHS of (2.1) converges uniformly on compact subsets of $|z| < 1$ and so represents an analytic function on $|z| < 1$. Thus we may write
+\begin{equation}
+    F(z) = \frac{(az)_\infty}{(z)_\infty} = \sum_{n = 0}^\infty A_n z^n
+\end{equation}
+From the product representation in (2.2), we can readily verify that
+\begin{equation}
+    (1-z)F(z) = (1-az)F(qz).
+\end{equation}
+Equating coefficients of $z^n$ on both sides of (2.3), we get
+\begin{align*}
+    A_n - A_{n-1} = q^n A_n - aq^{n-1}A_{n-1}
+\end{align*}
+or
+\begin{equation}
+    A_n = \frac{1-aq^{n-1}}{1-q^n} A_{n-1}
+\end{equation}
+Using $A_0 = 1$ in (2.2), we deduce that
+\begin{equation}
+    A_n = \frac{(a)_n}{(q)_n}
+\end{equation}
+Using (2.5) in (2.2), we complete the proof for (2.1)
+\end{proof}
+
+\subsection{Euler's Corollaries}
+\begin{equation}
+    \sum_{n = 0}^{\infty} \frac{z^n}{(q)_n} = \frac{1}{(z)_\infty}
+\end{equation}
+\begin{equation}
+    \sum_{n = 0}^{\infty} \frac{(-z)^nq^{n(n-1)/2}}{(q)_n} = (z)_\infty
+\end{equation}
+
+Euler discovered these corollaries by application of (2.1)
+\newpage
+\section{Jacobi Triple Product Identity}
+We present Jacobi's Triple Product Identity, which is immensely useful in the study of partitions in simplification of $q$-series products.
+\begin{theorem}
+For $z \neq 0$ and $|q| < 1$
+\begin{equation}
+    \sum_{n = -\infty}^{\infty} z^n q^{n^2} = (-zq;q^2)_\infty (-q/z;q^2)_\infty (q^2;q^2)_\infty
+\end{equation}
+\end{theorem}
+\begin{proof}
+    In (2.7), replace $q$ by $q^2$ and $z$ by $-zq$ to get
+\begin{equation}
+\begin{split}
+      (-zq;q^2)_\infty &= \sum_{n = 0}^{\infty} \frac{z^n q^{n^2}}{(q^2;q^2)_n} = \frac{1}{(q^2;q^2)}\sum_{n = 0}^{\infty} z^n q^{n^2}(q^{2n+2};q^2)_\infty \\
+    &= \frac{1}{(q^2;q^2)}\sum_{n-\infty}^{\infty} z^n q^{n^2}(q^{2n+2};q^2)_\infty,
+\end{split}
+\end{equation}
+since $(q^{2n+2};q^2)_\infty = 0$ when $n$ is a negative integer.
+
+Now apply (2.7), again with replacing $q$ with $q^2$ and $z$ with $q^{2n+2}$. Thus from (2.9),
+\begin{align*}
+(-zq;q^2)_\infty &= \frac{1}{(q^2;q^2)_\infty}\sum_{n = -\infty}^{\infty} z^nq^{n^2} \sum_{r=0}^\infty \frac{(-1)^rq^{(2n+2)r+r^2-r}}{(q^2;q^2)_r}\\
+&= \frac{1}{((q^2;q^2)_\infty} \sum_{r = 0}^{\infty} \frac{(-1)^rz^{-r}q^r}{(q^2;q^2)_r} \sum_{n= -\infty}^\infty z^{n+r}q^{(n+r)^2}
+\\&= \frac{1}{(q^2;q^2)_\infty} \sum_{r = 0}^{\infty} \frac{(-q/z)^r}{(q^2;q^2)_r} \sum_{n= -\infty}^\infty z^mq^{m^2}
+\\&= \frac{1}{(q^2;q^2)_\infty(-q/z;q^2)_\infty} \sum_{n= -\infty}^\infty z^mq^{m^2}
+\end{align*}
+\newpage
+by (2.6) with $z$ replaced by $-q/z$ and $q$ replaced by $q^2$, and therefore the restriction $|q/z| < 1$. Rearranging the final equation completes the proof of (2.8) for $|q/z| < 1$. However by analytic continuation, it hold's for all complex $z \neq 0$ completing the proof.
+\end{proof}
+
+\subsection{Corollory: Euler's Pentagonal Number Theorem}
+Euler's Pentagonal Number Theorem occurs as a special case of Jacobi's Triple Product Identity, which we state due to its combinatorial importance.
+\begin{equation}
+    \sum_{n = -\infty}^{\infty} (-1)^nq^{n(3n-1)/2} = \sum_{n = -\infty}^{\infty} (-1)^nq^{n(3n+1)/2} = (q;q)_\infty
+\end{equation}
