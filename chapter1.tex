@@ -1,107 +1,107 @@
 \chapter{Introduction to partitions}
-
-
-
 \section{Background}
+A partition of a nonnegative integer $n$ is a nonincreasing sequence of
+positive integers whose sum is $n$. Two sums differing only in the order
+of their summands represent the same partition. The notation
+$\lambda\vdash n$ means that $\lambda$ is a partition of $n$. The empty
+partition is the unique partition of zero.
 
-A partition of a positive integer $n$ is a way of writing $n$ as the sum of positive integers. Two sums that differ only in the order of their summands are considered the same partition. The notation $\lambda \vdash n$ means that $\lambda$ is a partition of $n$. 
+A summand is called a part. For a nonempty partition $\lambda$, write
+$n(\lambda)$ for its number of parts and $l(\lambda)$ for its largest part.
+For example, the five partitions of $4$ are
+\[
+ (4),\quad(3,1),\quad(2,2),\quad(2,1,1),\quad(1,1,1,1).
+\]
+Thus $n((2,1,1))=3$ and $l((2,1,1))=2$.
 
-A summand in a partition is also called a part. The length of a partition refers to the number of parts in the partition and is denoted by $n(\lambda)$ for a partition $\lambda$. Its largest part, is denoted by $l(\lambda)$. As an example, 4 can be partitions in five distinct ways as follows
+\section{Definitions and terminology}
+\subsection{The \texorpdfstring{$q$}{q}-Pochhammer symbol}
+The $q$-Pochhammer symbol is defined by
+\[
+ (a;q)_0=1,\qquad (a;q)_n=\prod_{k=0}^{n-1}(1-aq^k)\quad(n\ge1),
+\]
+and
+\[
+ (a;q)_\infty=\prod_{k=0}^\infty(1-aq^k)\qquad(|q|<1).
+\]
+When the base is clear, we abbreviate $(a;q)_n$ to $(a)_n$.
+The following product identities will be useful:
+\begin{align}
+ (q^a;q^b)_\infty(-q^a;q^b)_\infty
+ &= (q^{2a};q^{2b})_\infty,\label{eq:product-sign}\\
+ (cq^a;q^{2b})_\infty(cq^{a+b};q^{2b})_\infty
+ &= (cq^a;q^b)_\infty.\label{eq:product-split}
+\end{align}
+Here the parameters are chosen so that the products converge. For the
+partition-generating products below, the same identities hold formally.
+We also use the notation
 \begin{align*}
-4 &= 4
-  \\&= 3 + 1 = 2 + 2 
-  \\&= 2 + 1 + 1 
-  \\&= 1 + 1 + 1 + 1.
+ (a_1,\ldots,a_k;q)_n&=\prod_{i=1}^k(a_i;q)_n,\\
+ J_b&=(q^b;q^b)_\infty,\\
+ J_{a,b}&=(q^a,q^{b-a},q^b;q^b)_\infty\quad(0<a<b),\\
+ \chi(q)&=(-q;q^2)_\infty.
 \end{align*}
 
-Where, $n((2,1,1)) = 3$ and $l((2,1,1)) = 2$.
-\newpage
-
-\section{Definitions and Terminology}
-\subsection{$q$-Pochhammer Symbol}
-
-The $q$-Pochhammer symbol is defined as
-
-\begin{equation*}
-    (a)_0 := (a;q)_0 := 1, \quad (a; q)_n := \prod_{k=0}^{n-1} (1- aq^k) \quad n \geq 1,
-\end{equation*}
-\begin{equation*}
-    (a)_\infty := (a;q)_\infty := \prod_{k=0}^{\infty} (1- aq^k) \quad |q| < 1.
-\end{equation*}
-If the identification of $q$ is clear, we omit $q$ from the notation.
-We state several basic identities used for simplification later as mentioned in [5].
+\subsection{Ramanujan's general theta function}
+Ramanujan's general theta function is
 \begin{equation}
-    (q^a;q^b)_\infty(-q^a;q^b)_\infty = (q^{2a};q^{2b})_\infty
+ f(a,b)=\sum_{n\in\mathbb Z}a^{n(n+1)/2}b^{n(n-1)/2},\qquad |ab|<1.
 \end{equation}
-\begin{equation}
-    (cq^a;q^{2b})_\infty(cq^{a+b};q^{2b})_\infty = (cq^a;q^b)_\infty
+The specializations used in this report are
+\begin{align*}
+ \varphi(q)&=f(q,q)=\sum_{n\in\mathbb Z}q^{n^2}
+             =(-q,-q,q^2;q^2)_\infty,\\
+ \psi(q)&=f(q,q^3)=\sum_{n\ge0}q^{n(n+1)/2}
+             =\frac{(q^2;q^2)_\infty}{(q;q^2)_\infty}.
+\end{align*}
+These product evaluations follow from the Jacobi triple product in
+Chapter~\ref{ch:qseries}; see also Berndt~\cite{berndt,berndt2}.
+
+\subsection{Partition functions}
+Let $p(n)$ denote the number of partitions of $n$, with $p(0)=1$.
+Write $p_m(n)$ for the number of partitions whose parts are at most $m$.
+For a set $S$ of positive integers, let $p(S,m,n)$ count partitions of $n$
+into exactly $m$ parts from $S$. When $S$ is the set of all positive
+integers, abbreviate this to $p(m,n)$.
+
+Similarly, $Q(n)$ counts partitions into distinct parts, and $Q(S,m,n)$
+counts partitions of $n$ into exactly $m$ distinct parts from $S$.
+We use $Q(m,n)$ when $S$ is unrestricted, and set $Q(0)=1$.
+
+\subsection{Overpartitions}
+An overpartition is a partition in which the first occurrence of each
+distinct part may be overlined. The eight overpartitions of $3$ are
+\[
+ (3),\ (\overline3),\ (2,1),\ (2,\overline1),\
+ (\overline2,1),\ (\overline2,\overline1),\
+ (1,1,1),\ (\overline1,1,1).
+\]
+Writing $\overline p(n)$ for their number, we have
+\[
+ \overline p(n)=\sum_{k=0}^n p(n-k)Q(k).
+\]
+Indeed, the overlined parts form a partition into distinct parts, while
+the non-overlined parts form an unrestricted partition.
+
+\section{Generating functions}
+The generating function of a sequence $(a_n)_{n\ge0}$ is the formal power
+series $\sum_{n\ge0}a_nq^n$. For ordinary partitions, choosing the
+multiplicity of each part independently gives
+\begin{equation}\label{eq:partition-gf}
+ \sum_{n\ge0}p(n)q^n
+ =\prod_{k\ge1}(1+q^k+q^{2k}+\cdots)
+ =\frac1{(q;q)_\infty}.
 \end{equation}
-We will be using the following shorthand notations throughout the report and are also used in [1, 18, 19]:
-\begin{equation*}
-    (a_1,...,a_k;q)_n := (a_1,q)_n...(a_k;q)_n
-\end{equation*}
-\begin{equation*}
-    J_b := (q^b;q^b)_\infty
-\end{equation*}
-\begin{equation*}
-    J_{a,b} := (q^a,q^{b-a},q^b;q^b)_\infty
-\end{equation*}
-\begin{equation*}
-    \chi(q) := (-q;q^2)_\infty
-\end{equation*}
-\subsection{Ramanujan's General Theta Function}
-The famous Ramanujan's Theta function used in various proofs is as follows:
-\begin{equation}
-    f(a, b) := \sum_{n = -\infty}^\infty a^{n(n+1)/2}b^{n(n-1)/2}, \quad |ab| < 1.
-\end{equation}
-Some shorthand related to the above generating functions will be used as [5]
+More generally,
 \begin{align*}
-    \varphi(q) &:= f(q,q) = (-q,-q,q^2;q^2)_\infty,
-    \\ \psi(q) &:= f(q,q^3) = \frac{(q^2;q^2)_\infty}{(q;q^2)_\infty}.
+ \sum_{n,m\ge0}p(S,m,n)z^mq^n&=\prod_{k\in S}\frac1{1-zq^k},\\
+ \sum_{n,m\ge0}Q(S,m,n)z^mq^n&=\prod_{k\in S}(1+zq^k).
 \end{align*}
-
-\subsection{Definitions Relating to Partitions}
-\subsubsection{Partition Functions}
-If $n$ is a positive integer, let $p(n)$ denote the number of unrestricted representations of $n$ as a sum of positive integers, where representations with different orders of the same summands are not regarded as distinct. We call $p(n)$ the partition function. We further use the notation $p_m(n)$ to denote the number of partitions of $n$ into parts that are no larger than $m$.
-
-In general for a set $S$, $p(S, m, n)$ denotes the number of partitions of $n$ into exactly $m$ parts of $S$. Furthermore, we denote $p(m,n)$ as the number of partitions of $n$ into exactly $m$ parts.
-
-We denote $Q(n)$ as the number of partitions into distinct parts. More generally, $Q( S, m, n)$ denotes the number of partitions of $n$ into $m$ distinct parts of $S$. Similarly $Q( m, n )$ is the number of partitions of $n$ into exactly $m$ distinct parts.
-
-\subsubsection{Overpartitions}
-An overpartition of $n$ is a partition of $n$ in which the first occurrence of a number may be over-lined. For example, the over partitions of 3 are:
-\begin{align*}
-      \{ 3, \overline 3
-    , 2 + 1 , 2 + \overline 1 , \overline 2 + 1 , \overline 2 + \overline 1  
-    , 1 + 1 + 1 , \overline 1 + 1 + 1 \}
-\end{align*}
-
-The number of overpartitions of $n$ is denoted by $\overline p(n)$. This results in
-    $$\overline p(n) = \sum_{n_1 + n _2 = n} p(n_1)*Q(n_2)$$
-
-which is a discrete convolution between $p$ and $Q$, giving us $\overline p = p*Q$. Analogous to Dyson's rank function definitions for partitions we have $\overline N(s, n)$ and $\overline N(s, m, n)$ for overpartitions.
-
-\subsection{Generating Functions}
-The term generating function is used to describe an infinite sequence of numbers $(a_n)$ by treating them as the coefficients of a series expansion. This infinite series is the generating function.
-
-The generating function for the partition function $p(n)$ is represented as
-\begin{align*}
-\sum_{n=0}^\infty p(n)q^n
-&= \sum_{n_i \geq 0}q^{1n_1 + 2n_2 + \dots + kn_k + \dots}\\
-&= \frac{1}{1-q} \frac{1}{1-q^2} \dots \frac{1}{1-q^k} \dots\\
-&= \frac{1}{\prod_{k=0}^\infty (1-qq^k)}\\
-&= \frac{1}{(q;q)_\infty}
-\end{align*}
-\newpage
-For general partition functions, we get
-\begin{align*}
-\sum_{n=0}^\infty \sum_{m=0}^\infty p( S, m, n )z^mq^n &= \prod_{k \epsilon S} \frac{1}{1-zq^k},\\
-\sum_{n=0}^\infty \sum_{m=0}^\infty Q( S, m, n )z^mq^n &= \prod_{k \epsilon S} (1+zq^k).
-\end{align*}
-
-The generating function for overpartitions,  $\sum_{n=0}^\infty \overline p(n)q^n$ is the product of general partitions and that for partitions with distinct parts as it is given by their convolution. Therefore,
-\begin{align*}
-\sum_{n=0}^\infty \overline p(n)q^n = \frac{(-q;q)_\infty}{(q;q)_\infty}
-\end{align*}
-
-
+The convolution for overpartitions therefore gives
+\[
+ \sum_{n\ge0}\overline p(n)q^n
+ =\frac{(-q;q)_\infty}{(q;q)_\infty}.
+\]
+All coefficient extractions in this report are formal. Analytic identities
+are initially stated in their domains of convergence. Congruences between
+series with integer coefficients are understood coefficientwise.

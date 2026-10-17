@@ -1,109 +1,134 @@
-\chapter{Proof of Lin's Conjectures}
+\chapter{Resolutions of Lin's conjectures}\label{ch:lin}
+\section{Lin's conjectures and subsequent proofs}
+Lin~\cite{Lin2017} conjectured the stronger congruence
+\begin{equation}\label{eq:lin243}
+ b(81n+61)\equiv0\pmod{243}\qquad(n\ge0)
+\end{equation}
+and the generating-function congruences
+\begin{align}
+ \sum_{n\ge0}b(81n+7)q^n
+ &\equiv9\frac{f_2f_3^2}{f_6}\pmod{81},\label{eq:lin81a}\\
+ \sum_{n\ge0}b(81n+34)q^n
+ &\equiv36\frac{f_1f_6^2}{f_3}\pmod{81}.\label{eq:lin81b}
+\end{align}
+These are now theorems. Chern~\cite{chern} resolved the conjectures and
+proved the stronger divisibility $b(81n+61)\equiv0\pmod{729}$.
+Gireesh and Mahadeva Naika~\cite{gireesh} subsequently gave a general family
+of congruences and alternative proofs of Lin's conjectures. This chapter
+presents the deductions used in the original project report.
 
-\section{Lin's Conjectures}
-
-In [17] Lin conjectured the following:
-\begin{conjecture}
-\begin{equation}
-    b(81n + 61) \equiv 0 \pmod{243}.
-\end{equation}
-\end{conjecture}
-
-\begin{conjecture}
-\begin{equation}
-    \sum_{n=0}^\infty b(81n + 7)q^n \equiv 9 \frac{(q^2;q^2)_\infty(q^3;q^3)^2_\infty}{(q^6;q^6)_\infty} \pmod{81},
-\end{equation}
-\begin{equation}
-    \sum_{n=0}^\infty b(81n + 34)q^n \equiv 36 \frac{(q;q)_\infty(q^6;q^6)^2_\infty}{(q^3;q^3)_\infty} \pmod{81}.
-\end{equation}
-\end{conjecture}
-
-\newpage
-
-\section{Gireesh and Naika's proof}
-In [11], Gireesh and Naika present elegant proof for general family of congruences modulo large powers of 3 for cubic partition pairs.
-
-They use results obtained by Cooper in [9] and the "huffing" operator H to arrive at the following general congruences.
-\begin{theorem}
-For each $\alpha \geq 0$ and $n \geq 0$
-\begin{equation}
-    b\bigg(3^{2\alpha + 1}n + \frac{3^{2\alpha + 1} + 1}{4}\bigg) \equiv 0 \pmod{3^{2\alpha}}
-\end{equation}
-\begin{equation}
-    b\bigg(3^{2\alpha + 4}n + \frac{3^{2\alpha + 5} + 1}{4}\bigg) \equiv 0 \pmod{3^{2\alpha + 5}}
-\end{equation}
-\begin{equation}
-    b\bigg(3^{2\alpha + 5}n + \frac{7\cdot 3^{2\alpha + 4} + 1}{4}\bigg) \equiv 0 \pmod{3^{\alpha + 6}}
-\end{equation}
-\begin{equation}
-    b\bigg(3^{2\alpha + 5}n + \frac{11\cdot 3^{2\alpha + 4} + 1}{4}\bigg) \equiv 0 \pmod{3^{\alpha + 6}}
-\end{equation}
+\section{The general family of congruences}
+Gireesh and Mahadeva Naika use identities of Cooper~\cite{cooper} together
+with the huffing operator
+\[
+ H\left(\sum_{n\ge0}c_nq^n\right)=\sum_{n\ge0}c_{3n}q^{3n}.
+\]
+Their recurrence and valuation arguments establish the following theorem.
+\begin{theorem}[Gireesh--Mahadeva Naika, \cite{gireesh}]
+\label{thm:general-cubic}
+For all integers $\alpha,n\ge0$,
+\begin{align}
+ b\left(3^{2\alpha+1}n+\frac{3^{2\alpha+1}+1}{4}\right)
+ &\equiv0\pmod{3^{2\alpha}},\label{eq:family1}\\
+ b\left(3^{2\alpha+4}n+\frac{3^{2\alpha+5}+1}{4}\right)
+ &\equiv0\pmod{3^{2\alpha+5}},\label{eq:family2}\\
+ b\left(3^{2\alpha+5}n+\frac{7\cdot3^{2\alpha+4}+1}{4}\right)
+ &\equiv0\pmod{3^{\alpha+6}},\label{eq:family3}\\
+ b\left(3^{2\alpha+5}n+\frac{11\cdot3^{2\alpha+4}+1}{4}\right)
+ &\equiv0\pmod{3^{\alpha+6}}.\label{eq:family4}
+\end{align}
 \end{theorem}
+Setting $\alpha=0$ in \eqref{eq:family2} gives \eqref{eq:lin243} immediately.
+We cite the general theorem rather than reproduce its recurrence argument.
 
-Now Lin's Conjecture 6.1.1 follows directly from (6.5) by substituting $\alpha = 0$.
-
+\section{The two congruences modulo 81}
+We give the deduction in~\cite[Section 5]{gireesh}, making explicit the
+product identities and coefficient extractions it uses.
+\begin{lemma}\label{lem:five-power-dissection}
+\begin{equation}\label{eq:five-power-dissection}
+\begin{split}
+ \frac{f_2^5}{f_1^4}
+ &=\frac{f_6^6f_9^{10}}{f_3^{10}f_{18}^5}
+   +4q\frac{f_6^5f_9^7}{f_3^9f_{18}^2}
+   +9q^2\frac{f_6^4f_9^4f_{18}}{f_3^8}\\
+ &\quad+10q^3\frac{f_6^3f_9f_{18}^4}{f_3^7}
+   +4q^4\frac{f_6^2f_{18}^7}{f_3^6f_9^2}.
+\end{split}
+\end{equation}
+\end{lemma}
 \begin{proof}
-From [11], we elaborate on the proof of Lin's conjecture 6.1.2
-\begin{lemma}
-\begin{equation}
-        \frac{f^5_2}{f^4_1} = \frac{f^6_6f^{10}_9}{f^{10}_3f^5_{18}} + 4q\frac{f^5_6f^7_9}{f^9_3f^2_{18}} + 9q^2\frac{f^4_6f^4_9f_{18}}{f^8_3} + 10q^3\frac{f^3_6f_9f^4_{18}}{f^7_3}+4q^4\frac{f^2_6f^7_{18}}{f^6_3f^2_9}
-\end{equation}
-\begin{proof}
-From [i, p. 49, Corollary],
-\begin{equation}
-    \frac{f^2_2}{f_1} = \frac{f_6f^2_9}{f_3f_{18}} + q\frac{f^2_{18}}{f_9}
-\end{equation}
-In [12], Hirschhorn proves,
-\begin{equation}
-    \frac{f_2}{f^2_1} = \frac{f_6^4f_9^6}{f_3^8f_{18}^3} + 2q\frac{f^3_6f_9^3}{f^7_3}+4q^2\frac{f^2_6f^2_{18}}{f^6_3}
-\end{equation}
-By squaring (6.9), then multiplying by (6.10), we obtain (6.8)
+We use the two identities recorded in~\cite[Section 5]{gireesh}:
+\begin{align}
+ \frac{f_2^2}{f_1}
+ &=\frac{f_6f_9^2}{f_3f_{18}}+q\frac{f_{18}^2}{f_9},
+ \label{eq:psi-dissection}\\
+ \frac{f_2}{f_1^2}
+ &=\frac{f_6^4f_9^6}{f_3^8f_{18}^3}
+   +2q\frac{f_6^3f_9^3}{f_3^7}
+   +4q^2\frac{f_6^2f_{18}^3}{f_3^6}.
+ \label{eq:hirschhorn-dissection}
+\end{align}
+The first is a corollary in Berndt~\cite[p.~49]{berndt2}; the second is
+used by Hirschhorn and Sellers~\cite{sellers}. Squaring
+\eqref{eq:psi-dissection} and multiplying by
+\eqref{eq:hirschhorn-dissection} gives \eqref{eq:five-power-dissection}.
 \end{proof}
-\end{lemma}
 
-\begin{lemma}
-From [13, Eq. 5.1], we have,
-\begin{equation}
-    \frac{f_2^4f_3^8}{f_1^8f_6^4} + q\frac{f_2f_6^5}{f_1^5f_3} \equiv 1 \pmod 9
-\end{equation}
-\end{lemma}
+The next two inputs are the congruences recorded in~\cite[Section 5]{gireesh}:
+\begin{align}
+ U(q):=\frac{f_2^4f_3^8}{f_1^8f_6^4}
+       +q\frac{f_2f_6^5}{f_1^5f_3}
+ &\equiv1\pmod9,\label{eq:U-congruence}\\
+ \sum_{n\ge0}b(27n+7)q^n
+ &\equiv9\frac{f_3^2f_6^2}{f_1^4f_2^4}
+ \equiv9\frac{f_3^2f_2^5}{f_1^4f_6}\pmod{81}.
+ \label{eq:b27-mod81}
+\end{align}
+The first follows from a theta identity of Son~\cite{hwan}.
+The first congruence in \eqref{eq:b27-mod81} is an input from the
+recurrence calculation in~\cite{gireesh}; the second uses
+$f_2^9\equiv f_6^3\pmod9$.
 
-\begin{lemma}
-\begin{equation}
+\begin{theorem}
+The congruences \eqref{eq:lin81a} and \eqref{eq:lin81b} hold.
+\end{theorem}
+\begin{proof}
+Combining \eqref{eq:five-power-dissection} and \eqref{eq:b27-mod81} gives
+\begin{equation}\label{eq:b27-expanded}
 \begin{split}
-    \sum_{n = 0}^\infty b(27n + 7)q^n &\equiv 9\frac{f_3^2f_6^2}{f_1^1f_2^4} 
-    \\&\equiv 9 \frac{f_3^2f_2^5}{f_1^4f_6} \pmod{81}
+ \sum_{n\ge0}b(27n+7)q^n
+ &\equiv9\frac{f_3^2}{f_6}\left(
+ \frac{f_6^6f_9^{10}}{f_3^{10}f_{18}^5}
+ +4q\frac{f_6^5f_9^7}{f_3^9f_{18}^2}\right.\\
+ &\hspace{25mm}\left.
+ +q^3\frac{f_6^3f_9f_{18}^4}{f_3^7}
+ +4q^4\frac{f_6^2f_{18}^7}{f_3^6f_9^2}
+ \right)\pmod{81}.
 \end{split}
 \end{equation}
-\end{lemma}
+The coefficient $9q^2$ in the dissection vanishes after multiplication
+by $9$ modulo $81$, and $10$ may be replaced by $1$ in the $q^3$ term.
 
-Using (6.8) and (6.12), we get,
-\begin{equation}
-    \sum_{n=0}^\infty b(27n + 7)q^n \equiv 9 \frac{f_3^2}{f_6}
-    \bigg(\frac{f_6^6f_9^{10}}{f_3^{10}f_{18}^5} + 4q\frac{f^5_6f_9^7}{f^9_3f_{18}^2}+q^3\frac{f^3_6f_9f^4_{18}}{f^7_3}+4q^4\frac{f_6^2f_{18}^7}{f_3^6f_9^2}\bigg) \pmod{81}
-\end{equation}
-Through which we get,
-\begin{equation}
-\begin{split}
-    \sum_{n=0}^\infty b(81n + 7)q^n &\equiv 9 \frac{f_1^2}{f_2}
-    \bigg(\frac{f_2^6f_3^{10}}{f_1^{10}f_6^5} + +q\frac{f^3_2f_3f^4_6}{f^7_1}\bigg)
-    \\&\equiv 9 \frac{f_2f_3^2}{f_6}
-    \bigg(\frac{f_2^4f_3^8}{f_1^8f_6^4} + +q\frac{f_2f^5_6}{f^5_1f_3}\bigg) \pmod{81}
-\end{split}
-\end{equation}
-Using (6.11) in (6.14), we arrive at (6.2)
-\newpage
-Taking the terms from (6.13) in which the powers of $q$ are congruent to 1 modulo 3, then dividing by $q$, and then finally replacing $q^3$ by $q$, we get,
-\begin{equation}
-\begin{split}
-\sum_{n=0}^\infty b(81n + 34)q^n &\equiv 36 \frac{f_1^2}{f_2}
-    \bigg(\frac{f_2^5f_3^7}{f_1^9f_6^2} + +q\frac{f^2_2f_3f^7_6}{f^6_1f_3^2}\bigg)
-    \\&\equiv 36 \frac{f_1f_6^2}{f_3}\bigg( \frac{f_2^4f_3^8}{f_1^8f_6^4} + q\frac{f_2f_6^5}{f_1^5f_3} \bigg)
-\end{split}
-\end{equation}
+Retain the terms with exponents divisible by $3$ in
+\eqref{eq:b27-expanded} and replace $q^3$ by $q$. We obtain
+\begin{align*}
+ \sum_{n\ge0}b(81n+7)q^n
+ &\equiv9\frac{f_1^2}{f_2}\left(
+ \frac{f_2^6f_3^{10}}{f_1^{10}f_6^5}
+ +q\frac{f_2^3f_3f_6^4}{f_1^7}\right)\pmod{81}\\
+ &\equiv9\frac{f_2f_3^2}{f_6}U(q)\pmod{81}.
+\end{align*}
+Using \eqref{eq:U-congruence} proves \eqref{eq:lin81a}.
 
-Using (6.11) in (6.15), we arrive at (6.3).
-
-And thus we complete the demonstration of the proof for Conjecture 6.1.2
-
+Next retain the terms with exponents congruent to $1$ modulo $3$, divide
+by $q$, and replace $q^3$ by $q$. Then
+\begin{align*}
+ \sum_{n\ge0}b(81n+34)q^n
+ &\equiv36\frac{f_1^2}{f_2}\left(
+ \frac{f_2^5f_3^7}{f_1^9f_6^2}
+ +q\frac{f_2^2f_6^7}{f_1^6f_3^2}\right)\pmod{81}\\
+ &\equiv36\frac{f_1f_6^2}{f_3}U(q)\pmod{81}.
+\end{align*}
+Since $36\cdot9$ is divisible by $81$, \eqref{eq:U-congruence} proves
+\eqref{eq:lin81b} as well.
 \end{proof}

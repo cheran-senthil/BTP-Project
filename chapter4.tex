@@ -1,129 +1,248 @@
-\chapter{Mao's Inequalities: Proofs and Conjectures}
-\section{Mao's conjectures}
+\chapter{Mao's inequalities: partial results and an elementary completion}
+\label{ch:mao}
+\section{The conjectures and their status}
+Mao~\cite{mao1,mao2} derived generating functions for Dyson rank differences
+modulo $10$ and $M_2$-rank differences modulo $6$ and $10$. Among the
+inequalities he proved is
+\[
+ N_2(0,6,3n+1)+N_2(1,6,3n+1)
+ >N_2(2,6,3n+1)+N_2(3,6,3n+1)\qquad(n\ge0).
+\]
+The following statements were originally conjectured by Mao; they are
+listed in the form discussed by Barman and Sachdeva~\cite{barman}.
+\begin{align}
+ N(0,10,5n)+N(1,10,5n)
+ &>N(4,10,5n)+N(5,10,5n),\label{eq:mao1}\\
+ N(1,10,5n)+N(2,10,5n)
+ &\ge N(3,10,5n)+N(4,10,5n),\label{eq:mao2}\\
+ N_2(0,10,5n)+N_2(1,10,5n)
+ &>N_2(4,10,5n)+N_2(5,10,5n),\label{eq:mao3}\\
+ N_2(0,10,5n+4)+N_2(1,10,5n+4)
+ &>N_2(4,10,5n+4)+N_2(5,10,5n+4),\label{eq:mao4}\\
+ N_2(1,10,5n)+N_2(2,10,5n)
+ &>N_2(3,10,5n)+N_2(4,10,5n),\label{eq:mao5}\\
+ N_2(1,10,5n+2)+N_2(2,10,5n+2)
+ &>N_2(3,10,5n+2)+N_2(4,10,5n+2),\label{eq:mao6}\\
+ N_2(0,6,3n+2)+N_2(1,6,3n+2)
+ &>N_2(2,6,3n+2)+N_2(3,6,3n+2).\label{eq:mao7}
+\end{align}
+Here $n\ge1$ in \eqref{eq:mao2}, \eqref{eq:mao5}, and \eqref{eq:mao6},
+and $n\ge0$ in the other statements.
 
-Mao, in [18, 19] proved several inequalities using the generating function derived for Dyson's rank on partitions modulo 10 and the $M_2$ rank on partitions without repeated odd parts modulo 6 and 10 including,
-$$N(0,10,5n+1)>N(4,10,5n+1)$$
-$$N_2(0,6,3n)+N_2(1,6,3n) > N_2(2,6,3n)+ N_2(3,6,3n)$$
-Mao also left several inequalities as conjectures for which he had computational evidence.
+Alwaise, Iannuzzi, and Swisher~\cite{atkin1} proved
+\eqref{eq:mao1}--\eqref{eq:mao4}, including the strict version of
+\eqref{eq:mao2} for $n\ge1$. Barman and Sachdeva~\cite{barman} proved
+\eqref{eq:mao7} for two of the three residue classes of $n$ modulo $3$.
+The original project investigated the remaining class.
 
-\newpage
-\begin{conjecture}
-\begin{equation}
-    N(0,10,5n)+N(1,10,5n) > N(4,10,5n)+N(5,10,5n)
+Jennings-Shaffer and Reihill~\cite{jennings} subsequently resolved the
+remaining inequalities using asymptotic formulas. Section~\ref{sec:completion}
+gives an elementary proof of \eqref{eq:mao7} using the generating-function
+approach of Barman and Sachdeva.
+
+\section{The partial result of Barman and Sachdeva}
+For the rest of the chapter, put
+\begin{equation}\label{eq:d-definition}
+ d(n)=N_2(0,6,n)+N_2(1,6,n)-N_2(2,6,n)-N_2(3,6,n).
 \end{equation}
-\begin{equation}
-    N(1,10,5n)+N(2,10,5n) > N(3,10,5n)+N(4,10,5n)
-\end{equation}
-\begin{equation}
-    N_2(0,10,5n)+N_2(1,10,5n) > N_2(4,10,5n)+N_2(5,10,5n)
-\end{equation}
-\begin{equation}
-    N_2(0,10,5n+4)+N_2(1,10,5n+4) > N_2(4,10,5n+4)+N_2(5,10,5n+4)
-\end{equation}
-\begin{equation}
-    N_2(1,10,5n)+N_2(1,10,5n) > N_2(4,10,5n)+N_2(5,10,5n)
-\end{equation}
-\begin{equation}
-    N_2(1,10,5n+2)+N_2(2,10,5n+2) > N_2(3,10,5n+2)+N_2(4,10,5n+2)
-\end{equation}
-\begin{equation}
-    N_2(0,6,3n+2)+N_2(1,6,3n+2) > N_2(2,6,3n+2)+N_2(3,6,3n+2)
-\end{equation}
-\end{conjecture}
-
-\subsection{Proofs by Alwaise et al.}
-
-Alwaise et al in [1] gave the proof for (4.1), (4.2), (4.3) and (4.4).
-using the generating function of rank differences derived by Mao in [18] and theorems which relies on vector partitions with a given crank.
-
-\newpage
-\section{Proof of a limited version of one of Mao's Conjectures}
-
-\subsection{Proof by Barman and Sachdeva}
-
-A limited version of (4.7) was proved by R.Barman using the generating function derived by Mao in [19] and Theorem suggested in [2].
-
-\begin{theorem}
-Mao's conjecture (4.7) is true when $3 \nmid n+1$.
+\begin{theorem}[Barman--Sachdeva]\label{thm:partial}
+For all $m\ge0$, $d(9m+2)>0$ and $d(9m+5)>0$.
+Equivalently, $d(3n+2)>0$ when $3\nmid n+1$.
 \end{theorem}
-To prove the above we'll take help of Mao's $M_2$ rank difference generating function.
-\begin{theorem}
-(Mao [19]). We have 
-\begin{equation}
-    \begin{split}
-        d(n) &:= \sum_{n\geq 0}\big(N_2(0,6,n) + N_2(1,6,n) - N_2(2,6,n) - N_2(3,6,n)\big)q^n \\
-        &= \frac{1}{J_{9,36}}\sum_{n = -\infty}^\infty \frac{(-1)^nq^{18n^2 + 9n}}{1+q^{18n+3}} + q\frac{J_{6,36}^2J_{18,36}J_{36}^3}{J_{3,36}^2J_{9,36}J_{15,36}^2}\\
-        &+ \frac{J_{6,36}J_{18,36}^2J_{36}^3}{2q J_{9,36}J_{3,36}^2J_{15,36}^2}-\frac{1}{J_{9,36}}\sum_{n = -\infty}^\infty\frac{(-1)^n q^{18n^2+9n-1} }{ 1+q^{18n} }
-    \end{split}
+The proof uses the following identity of Mao, reproduced in~\cite{barman}.
+\begin{theorem}[Mao]\label{thm:mao-gf}
+\begin{equation}\label{eq:mao-gf}
+\begin{split}
+ \sum_{n\ge0}d(n)q^n
+ &=\frac1{J_{9,36}}\sum_{j\in\mathbb Z}
+       \frac{(-1)^jq^{18j^2+9j}}{1-q^{18j+3}}
+   +q\frac{J_{6,36}^2J_{18,36}J_{36}^3}
+            {J_{3,36}^2J_{9,36}J_{15,36}^2}\\
+ &\quad+\frac{J_{6,36}J_{18,36}^2J_{36}^3}
+                  {2qJ_{9,36}J_{3,36}^2J_{15,36}^2}
+   -\frac1{J_{9,36}}\sum_{j\in\mathbb Z}
+       \frac{(-1)^jq^{18j^2+9j-1}}{1+q^{18j}}.
+\end{split}
 \end{equation}
 \end{theorem}
+Negative-index summands are rewritten with nonnegative denominator
+exponents before their formal expansion. The apparent negative powers
+in the last two terms cancel in their sum.
 
-But the most important moving part of the proof was due to Barman and Baruah in [2].
-\begin{theorem}
-We have
-\begin{equation}
-    \varphi^2(q) + \varphi^2(q^3) = 2\varphi^2(-q^6)\frac{\chi(q)\psi(-q^3)}{\chi(-q)\psi(q^3)}
+The theta identity needed below is due to Baruah and Barman~\cite{atkin2}:
+\begin{equation}\label{eq:theta-identity}
+ \varphi(q)^2+\varphi(q^3)^2
+ =2\varphi(-q^6)^2
+   \frac{\chi(q)\psi(-q^3)}{\chi(-q)\psi(q^3)}.
 \end{equation}
-\end{theorem}
 
-We look at the generating function $\sum_{n \geq 0}d(3n+2)q^n$ in (4.8).
-Now we just take only the exponents congruent to 2 modulo 3 in (4.7) and substitute $q \hookrightarrow q^{\frac{1}{3}}$. We get the following
-\begin{proposition}
-\begin{equation}
-    \sum_{n \geq 0}d(3n+2)q^n  = \frac{1}{qJ_{3,12}}\bigg(\frac{J_{2,12}J_{6,12}^2J_{12}^3}{2J_{1,12}^2J_{5,12}^2} - \sum_{n = -\infty}^\infty \frac{(-1)^n q^{6n^2+3n} }{1+q^{6n} }\bigg)
+\begin{proposition}[Barman--Sachdeva]\label{prop:extraction}
+\begin{equation}\label{eq:d-extraction}
+ \sum_{n\ge0}d(3n+2)q^n
+ =\frac1{qJ_{3,12}}\left(
+ \frac{J_{2,12}J_{6,12}^2J_{12}^3}{2J_{1,12}^2J_{5,12}^2}
+ -\sum_{j\in\mathbb Z}\frac{(-1)^jq^{6j^2+3j}}{1+q^{6j}}
+ \right).
 \end{equation}
 \end{proposition}
+\begin{proof}
+In \eqref{eq:mao-gf}, the first term contains only exponents divisible by
+$3$, the second only exponents congruent to $1$, and the sum of the last
+two only exponents congruent to $2$. Retain the last two terms, divide by
+$q^2$, and replace $q^3$ by $q$. This gives \eqref{eq:d-extraction}.
+\end{proof}
 
-The following lemma is needed to tie the proof together.
-\begin{lemma}
-We have
-\begin{equation}
-    \frac{J_{2,12}J_{6,12}^2J_{12}^3}{J_{1,12}^2J_{5,12}^2} = \frac{\varphi^2(q) + \varphi^2(q^3)}{2}
+\begin{lemma}[Barman--Sachdeva]\label{lem:theta-product}
+\begin{equation}\label{eq:theta-product}
+ \frac{J_{2,12}J_{6,12}^2J_{12}^3}{J_{1,12}^2J_{5,12}^2}
+ =\frac{\varphi(q)^2+\varphi(q^3)^2}{2}.
 \end{equation}
 \end{lemma}
 \begin{proof}
-The proof is straight forward manipulation using the properties of q-series and using the Theorem 4.2.3.
+Expand the products and apply \eqref{eq:product-sign} and
+\eqref{eq:product-split}. The expression on the left becomes
+\[
+ \varphi(-q^6)^2
+ \frac{(-q,-q^5;q^6)_\infty}{(q,q^5;q^6)_\infty}
+ =\varphi(-q^6)^2\frac{\chi(q)\psi(-q^3)}{\chi(-q)\psi(q^3)}.
+\]
+Equation~\eqref{eq:theta-identity} completes the proof.
 \end{proof}
-This now sets up to prove Theorem 4.2.1
+
+\begin{proof}[Proof of Theorem~\ref{thm:partial}]
+Combining \eqref{eq:d-extraction} and \eqref{eq:theta-product} gives
+\begin{equation}\label{eq:d-theta}
+ D(q):=\sum_{n\ge0}d(3n+2)q^n
+ =\frac1{qJ_{3,12}}\left(
+ \frac{\varphi(q)^2+\varphi(q^3)^2}{4}
+ -\sum_{j\in\mathbb Z}\frac{(-1)^jq^{6j^2+3j}}{1+q^{6j}}
+ \right).
+\end{equation}
+Both $1/J_{3,12}$ and the bilateral sum contain only exponents divisible
+by $3$. Therefore, if $3\nmid n+1$,
+\[
+ d(3n+2)=[q^{n+1}]
+ \frac{\varphi(q)^2+\varphi(q^3)^2}{4J_{3,12}}.
+\]
+Here $[q^k]F(q)$ denotes the coefficient of $q^k$ in $F(q)$.
+The numerator divided by $4$ has nonnegative coefficients and contains
+$q+q^2$. The reciprocal product has nonnegative coefficients and contains
+$1/(1-q^3)$ as a factor. Thus the coefficient above is positive whenever
+$n+1\equiv1$ or $2\pmod3$.
+\end{proof}
+
+\subsection{The obstruction in the original attempt}
+The preceding proof does not address $n\equiv2\pmod3$, corresponding to
+$d(9m+8)$. The original attempt compared coefficients of the theta series
+with those of the alternating bilateral sum. The numerator in
+\eqref{eq:d-theta} is not coefficientwise nonnegative: its coefficient of
+$q^{27}$ is $-1$.
+
+Barman and Sachdeva also suggested testing positivity after dividing that
+numerator by $1-q^{12}$. Such positivity would be a useful sufficient step,
+but it is not an equivalent reformulation of the desired positivity after
+multiplication by the full reciprocal product. The argument below keeps
+that product and uses its factors in the cancellation.
+
+\section{An elementary completion (2026 addition)}\label{sec:completion}
+For formal power series, write $A\succeq B$ when every coefficient of
+$A-B$ is nonnegative. Define
+\begin{equation}\label{eq:P-definition}
+ S=\{k\ge1:k\not\equiv2\pmod4\},\qquad
+ P(q)=\prod_{k\in S}\frac1{1-q^k}=\sum_{m\ge0}p_S(m)q^m.
+\end{equation}
+Then $p_S(m)$ counts partitions into odd parts and multiples of four, and
+$1/J_{3,12}=P(q^3)$.
+
+\begin{theorem}\label{thm:completion}
+For every $n\ge0$,
+\begin{equation}\label{eq:lower-bound}
+ d(3n+2)\ge p_S(\floor{n/3})\ge1.
+\end{equation}
+In particular, $d(9m+a)\ge p_S(m)$ for $m\ge0$ and $a\in\{2,5,8\}$.
+\end{theorem}
+
+Pairing the terms with indices $j$ and $-j$ in \eqref{eq:d-theta}, we obtain
+\[
+ \sum_{j\in\mathbb Z}\frac{(-1)^jq^{6j^2+3j}}{1+q^{6j}}
+ =\frac12+2\sum_{j\ge1}\frac{(-1)^jq^{6j^2+3j}}{1+q^{6j}}.
+\]
+Indeed, multiplying numerator and denominator of the negative-index term
+by $q^{6j}$ makes it equal to the positive-index term. Put
+\begin{equation}\label{eq:T-L}
+ T(q)=\frac{\varphi(q)^2+\varphi(q^3)^2-2}{4},\qquad
+ L(q)=\sum_{j\ge1}\frac{(-1)^{j+1}q^{2j^2+j}}{1+q^{2j}}.
+\end{equation}
+Equation~\eqref{eq:d-theta} becomes
+\begin{equation}\label{eq:d-reduced}
+ D(q)=\frac1q\left(P(q^3)T(q)+2P(q^3)L(q^3)\right).
+\end{equation}
+The bracket has zero constant term, so division by $q$ is valid formally.
+
+\begin{lemma}\label{lem:positivity}
+We have $P(q)L(q)\succeq0$.
+\end{lemma}
 \begin{proof}
-Using Proposition 4.2.4 and Lemma 4.2.5 and noting that all the exponents in the summation inside the parenthesis is $0 \pmod{3}$, we have
-\begin{equation}
-    \begin{split}
-        \sum_{n \geq 0} d(3n+2)q^n  
-        &= \frac{ 1 }{ q J_{3,12} } \bigg(\frac{ J_{2,12}J_{6,12}^2J_{12}^3 }{ 2J_{1,12}^2J_{5,12}^2 } - \sum_{n = -\infty}^\infty \frac{(-1)^n q^{6n^2+3n} }{1+q^{6n} }\bigg)
-        \\&=\frac{1}{q J_{3,12} } \bigg(\frac{\varphi^2(q) + \varphi^2(q^3)}{4} - \frac{1}{2} + \sum_{n\geq 1}a_{3n}q^{3n}  \bigg)
-    \end{split}
+For each positive odd integer $r$, pair the term of index $r$ with the
+term of index $r+1$. Their contribution after multiplication by $P(q)$ is
+\[
+ B_r(q)=P(q)\left(
+ \frac{q^{2r^2+r}}{1+q^{2r}}
+ -\frac{q^{2(r+1)^2+r+1}}{1+q^{2r+2}}
+ \right).
+\]
+The difference between the numerator exponents is $4r+3$. Therefore
+\begin{equation}\label{eq:pair-fraction}
+ B_r(q)=q^{2r^2+r}P(q)
+ \frac{(1-q^{4r+3})+q^{2r+2}(1-q^{4r+1})}
+ {(1+q^{2r})(1+q^{2r+2})}.
 \end{equation}
-where $a_{3n} \in Z$
-
-Now if $3\nmid n+1$, then
-\begin{equation}
-    \begin{split}
-        d(3n+2)q^n &=[q^n]\frac{1}{q J_{3,12} } \bigg(\frac{\varphi^2(q) + \varphi^2(q^3)}{4} - \frac{1}{2} + \sum_{n\geq 1}a_{3n}q^{3n}  \bigg)
-        \\&=[q^{n+1}]\frac{\varphi^2(q) + \varphi^2(q^3)}{4J_{3,12}}
-    \end{split}
+Use the factorization
+\[
+ \frac1{(1+q^{2r})(1+q^{2r+2})}
+ =\frac{(1-q^r)(1+q^r)(1-q^{2r+2})}
+ {(1-q^{4r})(1-q^{4r+4})}.
+\]
+For $s=4r+1$ or $4r+3$, define
+\begin{align*}
+ Q_{r,s}(q)
+ &=P(q)(1-q^r)(1-q^{2r+2})(1-q^s)\\
+ &=\prod_{k\in S\setminus\{r,2r+2,s\}}\frac1{1-q^k}\succeq0.
+\end{align*}
+The cancellation is valid because $r$ and $s$ are odd, $2r+2$ is divisible
+by four, and $r<2r+2<4r+1\le s$. Thus the three cancelled factors
+correspond to distinct allowed part sizes.
+Substituting into \eqref{eq:pair-fraction} gives
+\begin{equation}\label{eq:positive-pair}
+ B_r(q)=\frac{q^{2r^2+r}(1+q^r)}{(1-q^{4r})(1-q^{4r+4})}
+ \left(Q_{r,4r+3}(q)+q^{2r+2}Q_{r,4r+1}(q)\right)\succeq0.
 \end{equation}
-where $[x^k]f(x)$ denotes the coefficient of $x^k$ in $f(x)$. Now all that we need to show is that all the coefficients of $\frac{\varphi^2(q) + \varphi^2(q^3)}{4J_{3,12}}$ are positive. This can be done using the following simplification
-\begin{equation*}
-    \begin{split}
-        \frac{\varphi^2(q) + \varphi^2(q^3)}{4J_{3,12}} &= 
-        \frac{2+4q+4q^2 + \sum_{n\geq 3}b_nq^n   }{(1-q^3)(q^9,q^9,q^12;q^12)_\infty}
-        \\&= \bigg( 2+4q+4q^2 + \sum_{n\geq 3}b_nq^n \bigg) \bigg(\sum_{n\geq0}q^{3n}\bigg)\bigg(1+\sum_{n\geq0}c_nq^n\bigg)
-    \end{split}
-\end{equation*}
-where $b_i$ and $c_i$ are non-negative.
+Summing over odd $r\ge1$ proves the lemma. Regrouping is valid because
+$2r^2+r\to\infty$, so each coefficient receives only finitely many
+contributions.
 \end{proof}
-\subsection{Remarks}
 
-The result is limited to $3n+2$ when $3\nmid n$ but computational evidence is suggested in [3] for the remaining case too.
+\begin{proof}[Proof of Theorem~\ref{thm:completion}]
+The series $T(q)$ has nonnegative coefficients and satisfies
+$T(q)\succeq q+q^2+q^3$. The first two monomials come from
+$\varphi(q)^2/4$ and the third from $\varphi(q^3)^2/4$.
+Using Lemma~\ref{lem:positivity} in \eqref{eq:d-reduced} gives
+\[
+ D(q)\succeq P(q^3)(1+q+q^2)
+ =\sum_{m\ge0}p_S(m)(q^{3m}+q^{3m+1}+q^{3m+2}).
+\]
+Comparing coefficients proves the first inequality in
+\eqref{eq:lower-bound}. A partition into ones exists for every $m>0$,
+and $p_S(0)=1$, so the lower bound is always positive.
+\end{proof}
 
-To prove the result for the remainder of the integers would imply that the following expression has non-negative coefficients
-$$\frac{1}{1-q^{12}}\bigg(\frac{J_{2,12}J_{6,12}^2J_{12}^3}{2J_{1,12}^2J_{5,12}^2} - \sum_{n = -\infty}^{n = \infty}\frac{(-1)^nq^{6n^2+3n}}{1+q^{6n}}\bigg)$$
-
-which would also mean that it is equivalent to showing that the following has positive coefficients for all exponents of $q$.
-$$\frac{1}{qJ_{3,12}}\bigg(\frac{\varphi^2(q) + \varphi^2(q^3)}{4} - \frac{1}{2} + \sum_{n\geq 1}a_{3n}q^{3n}\bigg)$$
-
-Our first attempt was to use the properties of $\varphi^2(q)$, where the coefficient of $q^n$ counts the number of integer solutions to $a^2 + b^2 = n$ but we need to compare this number with the other half of the above expression which does not seem to have any nice properties like this.
-
-We could attempt a proof along the lines of the method used by Alwaise et. al. in [1] but in the general setting removing a factor with non-negative coefficient can yield a negative coefficient which is hard to convince against. 
-
+\subsection{Verification and scope}
+The script \texttt{verify\_completion.py} checks the formulas against direct
+rank counts through $n=300$, the generating-function identity through
+$q^{1273}$, and the paired product identities through $q^{1274}$.
+For the formerly missing progression, the first ten values are
+\[
+ (d(9m+8))_{m=0}^9=(1,2,5,7,9,15,23,31,40,56).
+\]
+These finite checks support the algebra and indexing. The formal proof
+above establishes the result for all $n$ independently of those checks.

@@ -1,171 +1,138 @@
 \documentclass[12pt,a4paper]{report}
 
-\usepackage{amsthm,amssymb,mathrsfs,setspace,amsmath,mathtools}%amsmath, latexsym,footmisc
-\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
-% \usepackage{pstcol}
-% \usepackage{play}
-\usepackage{epsfig}
-%\usepackage[grey,times]{quotchap}
+\usepackage{amsthm,amssymb,amsmath,mathtools}
+\usepackage{graphicx,setspace}
+\usepackage[margin=28mm]{geometry}
 \usepackage[nottoc]{tocbibind}
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
-%
-
-\input xy
-\xyoption{all}
-
-
+\usepackage{xurl}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Congruences of Partitions: Rank Differences and Cubic Partition Pairs},
+  pdfsubject={Revised edition, 17 October 2026}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{conjecture}[theorem]{\bf{Conjecture}}
-
+\newtheorem{conjecture}{Conjecture}[chapter]
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{notation}[theorem]{Notation}
-
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
-
-\renewcommand{\baselinestretch}{1.5}
-
-\usepackage{tocloft}
-
-\makeatletter
-\@addtoreset{section}{part}
-\makeatother
-\newlength\mylen
-\renewcommand\thepart{\arabic{part}}
-\renewcommand\cftpartpresnum{Part~}
-\settowidth\mylen{\bfseries\cftpartpresnum\cftpartaftersnum}
-\addtolength\cftpartnumwidth{\mylen}
-
+\onehalfspacing
+\setlength{\emergencystretch}{2em}
+\clubpenalty=10000
+\widowpenalty=10000
 
 \begin{document}
-
-%\pagenumbering{arabic} \setcounter{page}{1}
-
-% --------------- Title page -----------------------
-
+\hypersetup{pageanchor=false}
 \begin{titlepage}
-\enlargethispage{3cm}
-
 \begin{center}
-
-\vspace*{-2cm}
-
-\textbf{\Large Congruences of Partitions:} \\
-\textbf{\Large Rank Differences and Cubic Partition Pairs}
-
+\vspace*{10mm}
+{\Large\bfseries Congruences of Partitions:\\[3mm]
+Rank Differences and Cubic Partition Pairs}
 \vfill
-
-A Project Report Submitted \\
-in Partial Fulfilment of the Requirements \\
-for the Degree of \\[1cm]
-
-{\bf\Large\ BACHELOR OF TECHNOLOGY }\\[.1in]
-{\large {in}}\\[5pt]
-{\large\bf {Mathematics and Computing}}\\[5pt]
-
- \vfill
-
-{\large \emph{by}}\\[5pt]
-{\large\bf {Abhishek Tyagi and Seralathan V S}}\\[5pt]
-{\large (Roll No. 140101004 and Roll No. 140123032)}
-
+{\large Revised edition --- 17 October 2026}\\[8mm]
+Based on the B.Tech. project report submitted in April 2018\\
+in Mathematics and Computing\\[8mm]
+{\large Abhishek Tyagi and Seralathan V S}\\
+Roll Nos. 140101004 and 140123032\\[8mm]
+Original project supervisor: Dr. Rupam Barman
 \vfill
-\includegraphics[height=2.5cm]{iitglogo}
-
-\vspace*{0.5cm}
-
-{\em\large to the}\\[10pt]
-{\bf\large DEPARTMENT OF MATHEMATICS} \\[5pt]
-{\bf\large \mbox{INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI}}\\[5pt]
-{\bf\large GUWAHATI - 781039, INDIA}\\[10pt]
-{\it\large April 2018}
+\includegraphics[height=25mm]{iitglogo.pdf}\\[8mm]
+Department of Mathematics\\
+Indian Institute of Technology Guwahati\\
+Guwahati -- 781039, India
+\vfill
 \end{center}
-
 \end{titlepage}
 
-\clearpage
+\pagenumbering{roman}
+\hypersetup{pageanchor=true}
+\chapter*{Note on the revised edition}
+\addcontentsline{toc}{chapter}{Note on the revised edition}
+The April 2018 report surveyed partition rank inequalities and cubic
+partition-pair congruences. It reproduced a partial proof of Mao's
+$M_2$-rank inequality and described an unsuccessful attempt to extend it to
+the progression $9m+8$.
 
-% --------------- Certificate page -----------------------
-\pagenumbering{roman} \setcounter{page}{2}
-\begin{center}
-{\Large{\bf{CERTIFICATE}}}
-\end{center}
-%\thispagestyle{empty}
+This edition adds a complete elementary proof in
+Section~\ref{sec:completion}, including an explicit lower bound. Its inputs
+are the generating-function and theta-function identities already used in
+the original report. No claim of priority is made for the elementary
+argument or its lower bound.
 
+All six chapters have been edited for mathematical notation, exposition,
+cross-references, and bibliographic accuracy. The discussion of cubic
+partition pairs remains an exposition of previously published work.
+Chapter~\ref{ch:lin} also records Chern's earlier resolution of Lin's
+conjectures.
 
-\noindent
-This is to certify that the work contained in this project report entitled ``{\bf Congruences of Partitions: Rank Differences and Cubic Partition Pairs}" submitted by {\bf Abhishek Tyagi} ({\bf Roll No. 140101004}) and {\bf Seralathan V S} ({\bf Roll No. 140123032}) to Department of Mathematics, Indian Institute of Technology Guwahati and Department of  towards the towards partial requirement of \textbf{Bachelor of Technology} in Mathematics and Computing has been carried out by them under my supervision.
-\\\\
-\noindent
-It is also certified that this report is a survey work based on the references
-in the bibliography.\\\\
-\noindent
-Turnitin Similarity: 18 \%
+The original report, including its title page and supervisor's certificate,
+is preserved without alteration as \texttt{report-2018.pdf}. The authorship,
+supervision, and certification recorded there refer to the 2018 submission;
+this dated revision is a subsequent edition. A separate four-page note,
+\texttt{mao-rank-inequality.pdf}, presents the elementary proof on its own.
 
-\vspace{4cm}
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+This report studies partition rank inequalities and congruences for cubic
+partition pairs. After introducing partitions, generating functions, and
+basic $q$-series identities, we discuss Dyson's rank and the $M_2$-rank of
+partitions without repeated odd parts.
 
-\noindent Guwahati - 781 039 \hfill (Dr. Rupam Barman)
+The principal addition in this revised edition is an elementary completion
+of the approach of Barman and Sachdeva to Mao's rank inequality. Writing
+\[
+ d(n)=N_2(0,6,n)+N_2(1,6,n)-N_2(2,6,n)-N_2(3,6,n),
+\]
+we prove
+\[
+ d(3n+2)\ge p_S(\floor{n/3})\ge1\qquad(n\ge0),
+\]
+where $p_S(m)$ counts partitions of $m$ into parts not congruent to $2$
+modulo $4$. The proof pairs consecutive terms of an alternating Lambert
+series and retains the partition-generating product needed for
+coefficientwise positivity. It includes the previously untreated
+progression $d(9m+8)$.
 
-\noindent April 2018 \hfill Project Supervisor
-
-\clearpage
-
-% --------------- Abstract page -----------------------
-\begin{center}
-{\Large{\bf{ABSTRACT}}}
-\end{center}
-
-This report describes the work of our B.Tech Project in the field of Partition Theory specifically in the study of Congruences of Partition Rank differences and Cubic Partition Pairs.
-
-The celebrated Ramanujan's congruences led Dyson to conjecture the existence of the rank of a partition such that we get a combinatorial interpretation to these congruences in [10]. The notion of rank was extended to rank differences and $M_2$ rank differences upon which Mao conjectured several inequalities in [18, 19].
-
-We investigated the proof to one of Mao's ten conjectures in [19] and attempted to extend the solution given by Barman and Sachdeva in [3] by using the properties of $\varphi^2(q)$, in which the coefficient of $q^n$ counts the number of Integer solutions to $n = a^2 + b^2$ or using general proof for $M_2$-rank differences given in [1].
-
-We also investigated the conjectures made by Lin in [17] before finding a proof for the same in [11].
-
-\clearpage
-
-
+The second part surveys cubic partition pairs and the congruences
+conjectured by Lin, presenting the deductions from the work of Gireesh and
+Mahadeva Naika. These results are distinguished from the 2026 addition to
+the rank-inequality argument.
 
 \tableofcontents
 \clearpage
-
-
-\newpage
-
 \pagenumbering{arabic}
-\setcounter{page}{1}
+\part{Partition rank inequalities}
+\input{chapter1}
+\input{chapter2}
+\input{chapter3}
+\input{chapter4}
+\part{Cubic partition pairs}
+\input{chapter5}
+\input{chapter6}
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+The elementary argument in Section~\ref{sec:completion} completes the
+rank-inequality problem investigated in the original project. It proves
+positivity in all three progressions $9m+2$, $9m+5$, and $9m+8$, with the
+common lower bound $p_S(m)$. The essential step is to establish positivity
+after multiplication by the full partition-generating product; positivity
+of the numerator alone is neither assumed nor required.
 
-% =========== Main chapters starts here. Type in separate files and include the filename here. ==
-% ============================
+The proof concerns the progression $3n+2$ and uses only the identities already available in the
+2018 report. The cubic partition-pair chapters explain known congruences
+and their proofs, with their original attribution retained.
 
-\part{}
-
-\input chapter1.tex
-
-\input chapter2.tex
-
-\input chapter3.tex
-\addtocontents{toc}{\protect\newpage}
-\input chapter4.tex
-
-\part{}
-
-\input chapter5.tex
-
-\input chapter6.tex
-
-\nocite{atkin1} \nocite{atkin2} \nocite{barman} \nocite{berndt} \nocite{dyson}  \nocite{mao1} \nocite{mao2} \nocite{Lin2017} \nocite{chan1} \nocite{chan2} \nocite{chan3} \nocite{kim1} \nocite{kim2} \nocite{kim3} \nocite{zhao1} \nocite{gireesh} \nocite{cooper} \nocite{hwan} \nocite{sellers} \nocite{berndt2}
-
+The accompanying scripts provide exact coefficient checks:
+\begin{itemize}
+\item \texttt{verify\_completion.py} checks the rank-inequality argument.
+\item \texttt{verify\_identities.py} checks the product identities and congruences.
+\end{itemize}
+These checks verify formulas and indexing over finite ranges; the proofs
+and cited theorems establish the results for all indices.
 \bibliographystyle{plain}
 \bibliography{refer_items}
-
 \end{document}
-
